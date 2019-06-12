@@ -1,1 +1,0 @@
-INSERT INTO dept VALUES (2,'2');
