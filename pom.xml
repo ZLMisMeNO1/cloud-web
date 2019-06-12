@@ -123,6 +123,7 @@
   <modules>
     <module>cloud-api</module>
     <module>cloud-provider</module>
+    <module>cloud-consumer</module>
   </modules>
 
   <build>

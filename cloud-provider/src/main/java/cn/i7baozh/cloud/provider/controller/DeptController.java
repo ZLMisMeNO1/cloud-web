@@ -1,13 +1,9 @@
 package cn.i7baozh.cloud.provider.controller;
 
 import cn.i7baozh.cloud.api.bean.DeptBean;
-import cn.i7baozh.cloud.provider.controller.resp.DeptResp;
 import cn.i7baozh.cloud.provider.service.DeptService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Title:
@@ -24,17 +20,16 @@ public class DeptController {
     private DeptService deptService;
 
     @GetMapping("/view/{id}")
-    public DeptResp getById(@PathVariable Long id) {
-        DeptBean deptBean = deptService.getById(id);
+    public DeptBean getById(@PathVariable Long id) {
 
-        return new DeptResp.DeptRespConverter().convert(deptBean);
+        return deptService.getById(id);
     }
 
-    @GetMapping("/update")
-    public DeptResp getById( Long id,String name) {
-        DeptBean deptBean = deptService.updateById(id,name);
+    @PostMapping("/update")
+    public DeptBean getById(Long id, String name) {
+        DeptBean deptBean = deptService.updateById(id, name);
 
-        return new DeptResp.DeptRespConverter().convert(deptBean);
+        return deptBean;
     }
 
     @GetMapping("/delete/{id}")
