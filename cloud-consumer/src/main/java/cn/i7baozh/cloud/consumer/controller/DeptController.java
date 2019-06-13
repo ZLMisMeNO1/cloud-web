@@ -1,6 +1,7 @@
 package cn.i7baozh.cloud.consumer.controller;
 
 import cn.i7baozh.cloud.api.bean.DeptBean;
+import cn.i7baozh.cloud.consumer.config.RestTemplateConfig;
 import com.alibaba.fastjson.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,13 @@ import java.util.Map;
 @RequestMapping("/dept")
 public class DeptController {
 
-    private static final String baseUrl = "http://localhost:8001/provider/dept";
+    /**
+     * 这里注意下 只有使用了ribbon后才能使用实例名，不然会报错
+     * @see RestTemplateConfig#restTemplate()
+     */
+    private static final String baseUrl = "http://dept-provider";
+
+//    private static final String baseUrl = "http://localhost:8001";
 
     @Autowired
     private RestTemplate restTemplate;
@@ -32,7 +39,7 @@ public class DeptController {
     @GetMapping("/view/{id}")
     public DeptBean getById(@PathVariable Long id) {
 
-        DeptBean deptBean =  restTemplate.getForObject(baseUrl + "/view/" + id,DeptBean.class);
+        DeptBean deptBean =  restTemplate.getForObject(baseUrl + "/dept/view/" + id,DeptBean.class);
         return deptBean;
     }
 

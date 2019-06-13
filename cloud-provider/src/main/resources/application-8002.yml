@@ -2,7 +2,7 @@
 debug: false
 
 server:
-  port: 8001
+  port: 8002
 
 logging:
   path: ./logs
@@ -57,5 +57,5 @@ eureka:
     service-url:
       defaultZone: http://eureka7001:7001/eureka/,http://eureka7002:7002/eureka/,http://eureka7003:7003/eureka/
   instance:
-    instance-id: deptprovider8001
+    instance-id: deptprovider8002
     prefer-ip-address: true

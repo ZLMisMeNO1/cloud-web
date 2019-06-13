@@ -23,11 +23,11 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 @EnableEurekaClient
 @EnableDiscoveryClient
 @SpringBootApplication(scanBasePackages = "cn.i7baozh.cloud.provider")
-public class RunServer8001 {
+public class RunServer8003 {
 
     public static void main(String[] args) {
-        SpringApplication springApplication = new SpringApplication(RunServer8001.class);
-        springApplication.setAdditionalProfiles("8001");
+        SpringApplication springApplication = new SpringApplication(RunServer8003.class);
+        springApplication.setAdditionalProfiles("8003");
         springApplication.run( args);
     }
 }

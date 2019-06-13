@@ -16,12 +16,12 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
-    <boot.version>2.1.5.RELEASE</boot.version>
+    <boot.version>1.5.9.RELEASE</boot.version>
     <java.version>1.8</java.version>
     <lombok.version>1.18.6</lombok.version>
     <guava.version>27.0.1-jre</guava.version>
     <hystrix.version>1.5.12</hystrix.version>
-    <mybatis.version>2.0.1</mybatis.version>
+    <mybatis.version>1.3.0</mybatis.version>
     <jsonobject.version>1.2.58</jsonobject.version>
     <druid.version>1.1.10</druid.version>
     <log4j.version>1.2.17</log4j.version>
@@ -40,6 +40,13 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-dependencies</artifactId>
+        <version>Dalston.SR1</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-dependencies</artifactId>
         <version>${boot.version}</version>
@@ -51,6 +58,12 @@
         <artifactId>spring-boot-starter-jetty</artifactId>
         <version>${boot.version}</version>
       </dependency>
+      <!--暴露各种指标-->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-actuator</artifactId>
+        <version>${boot.version}</version>
+      </dependency>
       <dependency>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-test</artifactId>
@@ -60,12 +73,11 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-web</artifactId>
         <version>${boot.version}</version>
-        <exclusions>
-          <exclusion>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-tomcat</artifactId>
-          </exclusion>
-        </exclusions>
+      </dependency>
+      <dependency>
+        <groupId>ch.qos.logback</groupId>
+        <artifactId>logback-core</artifactId>
+        <version>1.2.3</version>
       </dependency>
       <dependency>
         <groupId>org.springframework.boot</groupId>
@@ -124,10 +136,22 @@
     <module>cloud-api</module>
     <module>cloud-provider</module>
     <module>cloud-consumer</module>
+    <module>cloud-eureka-server</module>
   </modules>
 
   <build>
     <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+          <optimize>true</optimize>
+          <encoding>utf-8</encoding>
+          <debug>true</debug>
+        </configuration>
+      </plugin>
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
