@@ -138,6 +138,8 @@
         <module>cloud-provider</module>
         <module>cloud-consumer</module>
         <module>cloud-eureka-server</module>
+        <module>cloud-hystrix-dashboard</module>
+        <module>cloud-zuul-gateway</module>
     </modules>
 
     <build>
