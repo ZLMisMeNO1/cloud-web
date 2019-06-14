@@ -69,7 +69,13 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-hystrix</artifactId>
         </dependency>
-        <!-- 熔断技术 -->
+        <!-- 熔断技术 end -->
+        <!-- actuator 监控信息完善 用于hystrix-dashboard 监控-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        <!-- actuator 监控信息完善 用于hystrix-dashboard 监控 end-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
