@@ -1,0 +1,22 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: zuul-gateway9527
+# 指定eureka集群服务位置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka/,http://eureka7002:7002/eureka/,http://eureka7003:7003/eureka/
+  instance:
+    instance-id: zuul-gateway
+    prefer-ip-address: true
+
+zuul:
+#  ignored-services: dept-provider # 忽略服务，这样通过http://zuul9527:9527/dept-provider/dept/view/1这种方式就返回404了
+  ignored-services: "*" # * 代表所有
+  prefix: /i7baozh #设置统一公共前缀 这样就要通过方法 http://zuul9527:9527/i7baozh/mydept/dept/view/1 来访问
+  routes:
+    mydept.serviceId: dept-provider
+    mydept.path: /mydept/**

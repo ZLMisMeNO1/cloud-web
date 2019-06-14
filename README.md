@@ -8,12 +8,15 @@ CREATE DATABASE  IF NOT EXISTS CloudWeb;
 ```
 2. 修改配置文件数据库连接
 
-3. host文件加入3个映射
+3. host文件加入4个映射
+
+> C:\Windows\System32\drivers\etc
 
 ```
 127.0.0.1 eureka7001
 127.0.0.1 eureka7002
 127.0.0.1 eureka7003
+127.0.0.1 zuul9527
 ```
 
 
@@ -34,6 +37,9 @@ CREATE DATABASE  IF NOT EXISTS CloudWeb;
 
 4. 启动hystrix监控
 - cn.i7baozh.cloud.hystrix.dashboard.RunServer9001
+
+5. 启动网关
+- cn.i7baozh.cloud.zuul.gateway.RunServer9527
 
 ### 测试
 
@@ -86,4 +92,16 @@ CREATE DATABASE  IF NOT EXISTS CloudWeb;
 - 点击 Monitor Stream
 - 疯狂访问8001服务中带有熔断的方法（使用jmeter最好啦）
 
+8. 测试zuul网关
+
+**坑：使用网关的时候实例名是yml文件中配置的，不要看eureka中是大写就写大写，会404**
+- 不用网关
+> http://localhost:8001/dept/view/1
+
+- 使用网关（如果不能访问的话看下配置）
+> http://zuul9527:9527/dept-provider/dept/view/1
+
+> http://zuul9527:9527/mydept/dept/view/1
+
 ### hystrix-dashboard
+
