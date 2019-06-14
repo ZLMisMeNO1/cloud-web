@@ -19,6 +19,11 @@ import org.springframework.web.client.RestTemplate;
 @Configuration
 public class RestTemplateConfig {
 
+    /**
+     * rest端，可以通过这个对象来进行URL的直接访问
+     * 加入@LoadBalanced 这个注解，一方面加入了负载均衡，另一方面可用实例名代替ip+端口号的方式访问服务
+     * @return
+     */
     @Bean
     @LoadBalanced //负载均衡
     public RestTemplate restTemplate() {

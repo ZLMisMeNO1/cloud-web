@@ -27,7 +27,7 @@ import java.util.Map;
 public class DruidConfig {
 
     /**
-     * 初始化
+     * 初始化druid连接池
      * @return
      */
     @Bean
@@ -37,6 +37,10 @@ public class DruidConfig {
         return new DruidDataSource();
     }
 
+    /**
+     * 以下两个方法都是要注册druid访问界面的
+     * @return
+     */
     @Bean
     @ConditionalOnMissingBean
     public ServletRegistrationBean druidServlet() {

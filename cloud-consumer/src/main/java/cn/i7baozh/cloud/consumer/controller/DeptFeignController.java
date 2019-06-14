@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @Title:
+ * @Title: 使用Feign的方式使用服务
  * @Package
  * @Description:
  * @author: baoqi.zhang

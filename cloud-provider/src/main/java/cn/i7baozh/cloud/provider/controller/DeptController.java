@@ -26,11 +26,13 @@ public class DeptController {
     /**
      * 使用HystrixCommand注解的方式 缺点是硬编码，
      * 且每个方法都要提供一个代替方法，使得代码量大。
-     *
+     * 还有一点是，如果服务不可用了（断电、完全崩溃）时，客户端无法知道，还在等待服务端响应，一直等待就会造成拥堵，或集群的雪崩。
+     * <p>
      * 可以使用api端加入HystrixFactory的方式
-     * @see
+     *
      * @param id
      * @return
+     * @see
      */
     @GetMapping("/view/{id}")
     @HystrixCommand(fallbackMethod = "getByIdHystrix")
@@ -46,9 +48,15 @@ public class DeptController {
         return bean;
     }
 
+    /**
+     * 熔断的代替方法
+     * @param id
+     * @return
+     */
     public DeptBean getByIdHystrix(@PathVariable Long id) {
         return new DeptBean().setId(10000L).setDeptName("测试服务熔断");
     }
+
     @PostMapping("/update")
     public DeptBean getById(Long id, String name) {
         DeptBean deptBean = deptService.updateById(id, name);

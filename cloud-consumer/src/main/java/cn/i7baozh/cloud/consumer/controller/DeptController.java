@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @Title:
+ * @Title: 使用URL的方式访问服务，一般不使用这种方式
  * @Package
  * @Description:
  * @author: baoqi.zhang

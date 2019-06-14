@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 /**
- * @Title:
+ * @Title: Feign端，name指定服务实例 fallbackFactory指定 服务不可用的代替者，即降级处理方式
  * @Package
  * @Description:
  * @author: baoqi.zhang

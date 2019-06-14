@@ -65,5 +65,13 @@ CREATE DATABASE  IF NOT EXISTS CloudWeb;
 
 > http://localhost:6001/dept2/view/100
 
+6. Druid监控界面
+
+> http://localhost:8001/druid/index.html
+
+> http://localhost:8002/druid/index.html
+
+> http://localhost:8003/druid/index.html
+
 
 

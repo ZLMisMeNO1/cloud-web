@@ -8,7 +8,8 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 
 /**
- * @Title:
+ * @Title: @Accessors(chain = true)的作用 能够使用这种方式构建对象
+ *              new DeptBean().setId().setDeptName()
  * @Package
  * @Description:
  * @author: baoqi.zhang
