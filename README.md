@@ -49,13 +49,11 @@ CREATE DATABASE  IF NOT EXISTS CloudWeb;
 
 > http://localhost:6001/dept2/view/2
 
-3. 测试负载均衡，注意看日志
+3. 测试负载均衡
 
+连续访问下面URL，注意看日志。
 > http://localhost:6001/dept/view/1
 
-> http://localhost:6001/dept/view/1
-
-> http://localhost:6001/dept/view/1
 
 4. 测试 方法上注解版熔断
 
@@ -63,7 +61,12 @@ CREATE DATABASE  IF NOT EXISTS CloudWeb;
 
 5. 测试服务降级
 
+第一种方式，访问下面URL
 > http://localhost:6001/dept2/view/100
+
+第二种方式，将provider服务关掉，访问下面URL
+
+> http://localhost:6001/dept2/view/1
 
 6. Druid监控界面
 
