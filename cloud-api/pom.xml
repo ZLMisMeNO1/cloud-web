@@ -8,12 +8,11 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
+    <description>公共bean端</description>
     <artifactId>cloud-api</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>${project.version}</version>
 
     <name>cloud-api</name>
-    <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
     <packaging>jar</packaging>
 
@@ -22,6 +21,7 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
         </dependency>
+        <!-- 客户端服务降级处理、负载均衡及实例发现-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-feign</artifactId>
