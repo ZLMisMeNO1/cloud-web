@@ -2,4 +2,4 @@
 spring:
   profiles:
     active:
-      - 80
+      - 6001

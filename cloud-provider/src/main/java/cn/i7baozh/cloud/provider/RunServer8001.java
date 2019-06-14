@@ -4,8 +4,10 @@ import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 
 /**
  * @Title:
@@ -22,7 +24,9 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 //将服务注册到 eureka 中
 @EnableEurekaClient
 @EnableDiscoveryClient
+//@EnableHystrix
 @SpringBootApplication(scanBasePackages = "cn.i7baozh.cloud.provider")
+@EnableCircuitBreaker //对hystrix熔断机制的支持
 public class RunServer8001 {
 
     public static void main(String[] args) {

@@ -25,7 +25,7 @@ spring:
   datasource:
     username: root
     password: 123456
-    url: jdbc:mysql://192.168.175.134:3306/CloudWeb
+    url: jdbc:mysql://192.168.175.134:3306/CloudWeb?allowMultiQueries=true&useUnicode=true&characterEncoding=utf8&serverTimezone=UTC
     driver-class-name: com.mysql.cj.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
     # https://www.cnblogs.com/wuyun-blog/p/5679073.html
